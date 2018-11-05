@@ -8,7 +8,7 @@ spec:
   accessModes:
     - ReadWriteMany
   nfs:
-    server: xx.xx.xx.xx
+    server: 10.0.5.237
     path: "/"
   mountOptions:
       - rw

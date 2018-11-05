@@ -1,12 +1,12 @@
 proxy:
-    secretToken: "generatesecrettoken"
+    secretToken: "bdf362c92ab6606543b8f49bf94d1790afedeca83185b606ff8fc287d381d320"
     service:
-        loadBalancerIP: "xx.xx.xx.xx"
+        loadBalancerIP: "35.242.224.118"
     https:
         hosts:
-            - hostname.net
+            - jupyterhub-gcp-dzelge.earthsystemdatalab.net
         letsencrypt:
-            contactEmail: "your-admin@email.net"
+            contactEmail: "helge.dzierzon@brockmann-consult.de"
 singleuser:
     initContainers:
         - name: esdl-shared
@@ -23,7 +23,7 @@ singleuser:
         runAsUser: 1000
         fsGroup: 100
     image:
-        name: eu.gcr.io/jupyterhub-218810/singleuser-julia-nb
+        name: quay.io/esdc/singleuser-r-nb
         tag: "0.5.2"
         defaultUrl: "/lab"
     storage:
@@ -52,19 +52,16 @@ hub:
 auth:
     admin:
         users:
+            - dzelge
             - admin-user
     type: github
     github: 
-        clientId: "create-oauth-app"
-        clientSecret: "create-oauth-app"
-        callbackUrl: "https://hostname.net/hub/oauth_callback"
+        clientId: "f53dd4d4fcd60da0c05f"
+        clientSecret: "0280a71ffd3e7e64c280376bcc1a9020abbdcb61"
+        callbackUrl: "https://jupyterhub-gcp-dzelge.earthsystemdatalab.net/hub/oauth_callback"
     whitelist:
         users:
-            - user1
-            - user2
-            - user3
-            - user4
-            - user5
+            - dzelge
 prePuller:
     continuous:
         enabled: true
